@@ -7,13 +7,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:layout_margin="10dp"
-        android:background="#74f96b"
-        android:textColor="#fff"
+        android:background="#ed3b3b"
+        android:textColor="#FFF"
+        android:onClick="toKidActivity"
         android:text="Вы \nродитель \nили \nребенок"
         android:textSize="40sp"/>
     <Button
@@ -21,8 +23,9 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:layout_margin="10dp"
-        android:background="#4289f4"
+        android:background="#fcaf35"
         android:textColor="#fff"
+        android:onClick="toTeacherActivity"
         android:text="Вы \nпреподаватель \nили \nтренер"
         android:textSize="40sp"/>
 </LinearLayout>
