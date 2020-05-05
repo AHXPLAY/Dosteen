@@ -9,6 +9,7 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ListOfHobbiesActivity"></activity>
         <activity android:name=".TeacherActivity"></activity>
         <activity android:name=".UserOneActivity" />
         <activity android:name=".MainActivity">
