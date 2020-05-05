@@ -8,24 +8,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import Data.HobbiesDatabse;
-import Model.HobbyGroupElements;
+
 
 public class MainActivity extends AppCompatActivity {
+    FirebaseDatabase database;
+    DatabaseReference myRef;
 
 
-    private HobbiesDatabse hobbiesDatabse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        hobbiesDatabse = Room.databaseBuilder(
-                getApplicationContext(), HobbiesDatabse.class, "HobbiesDB").
-                allowMainThreadQueries().build();
     }
     public void toKidActivity(View view){
         Intent kidActivity = new Intent(MainActivity.this, UserOneActivity.class);
