@@ -16,7 +16,7 @@
         android:onClick="toList"
         android:textColor="#fff"
         android:textSize="50sp"
-        android:background="#3f8cff"
+        android:background="#000B29"
         android:layout_weight="1"/>
     <Button
         android:layout_width="match_parent"
@@ -24,23 +24,26 @@
         android:text="Образование"
         android:textColor="#fff"
         android:textSize="50sp"
-        android:background="#43f289"
-        android:layout_weight="1"/>
+        android:background="#D70026"
+        android:layout_weight="1"
+        android:onClick="toList"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:onClick="toList"
         android:text="Творчество"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:textSize="50sp"
-        android:background="#f7cf3d"
+        android:background="#F8F5F2"
         android:layout_weight="1"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:onClick="toList"
         android:text="Другое"
         android:textColor="#fff"
         android:textSize="50sp"
-        android:background="#bc64ef"
+        android:background="#EDB83D"
         android:layout_weight="1"/>
 
 </LinearLayout>

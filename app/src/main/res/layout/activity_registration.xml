@@ -7,22 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".RegistrationActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text="Зарегистрируйте \nвашу секцию/кружок"
-        android:textColor="#000"
-        android:textSize="25sp"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="center"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"/>
+
     <RelativeLayout
         android:id="@+id/reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp">
         <TextView
             android:id="@+id/emailHeader"
             android:layout_width="wrap_content"
@@ -88,6 +79,7 @@
         android:layout_height="wrap_content"
         android:text="Зарегистрироваться"
         android:onClick="toSignIn"
+        android:background="#EEB93C"
         />
 
 </RelativeLayout>

@@ -3,9 +3,12 @@ package com.example.dosteen;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +20,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 
 import static android.service.autofill.Validators.and;
 
@@ -30,7 +39,9 @@ public class RegistrationActivity extends AppCompatActivity {
     Button SignInOrUp;
     TextView changToLoginOrSignIn;
     private static final String TAG = "RegistrationActivity";
-    private boolean loginModeActive = false;
+    private boolean loginModeActive = true;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    //DatabaseReference usersDatabaseReference;
 
 
     @Override
@@ -44,6 +55,11 @@ public class RegistrationActivity extends AppCompatActivity {
         changToLoginOrSignIn = findViewById(R.id.changing);
         repeatPassword = findViewById(R.id.editrepeatpass);
         repeatHedaer = findViewById(R.id.repeatpass);
+        if (auth.getCurrentUser() != null){
+            startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+            finish();
+        }
+
     }
 
     public void toSignIn(View view) {
@@ -73,6 +89,7 @@ public class RegistrationActivity extends AppCompatActivity {
                        // Sign in success, update UI with the signed-in user's information
                        Log.d(TAG, "createUserWithEmail:success");
                        FirebaseUser user = auth.getCurrentUser();
+                       toCreateUser(user);
                        startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
 
                        // updateUI(user);
@@ -112,6 +129,16 @@ public class RegistrationActivity extends AppCompatActivity {
        }
    }
 
+    private void toCreateUser(FirebaseUser firebaseUser) {
+        User user = new User();
+        user.setId(firebaseUser.getUid());
+        user.setEmail(firebaseUser.getEmail());
+        user.setNumOfSections(0);
+        DocumentReference documentReference = db.collection("users").document(user.getId());
+        documentReference.set(user);
+        //usersDatabaseReference.child(user.getId()).setValue(user);
+    }
+
     public void toggleLoginMode(View view) {
         if(loginModeActive) {
             loginModeActive = false;
@@ -131,7 +158,18 @@ public class RegistrationActivity extends AppCompatActivity {
         }
 
         }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+            System.exit(0);
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
+
+}
+
 
 
 

@@ -7,25 +7,70 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="#FF756D"
+    android:clickable="true"
+    android:onClick="toTeacherActivity">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_margin="10dp"
-        android:background="#ed3b3b"
-        android:textColor="#FFF"
-        android:onClick="toKidActivity"
-        android:text="Вы \nродитель \nили \nребенок"
-        android:textSize="40sp"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_margin="10dp"
-        android:background="#fcaf35"
+    <ImageView
+        android:layout_width="128dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="128dp"
+        android:layout_above="@id/text2"
+        app:srcCompat="@drawable/teacher"
+        android:layout_marginTop="6dp"/>
+    <TextView
+        android:id="@+id/text2"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textColor="#fff"
-        android:onClick="toTeacherActivity"
-        android:text="Вы \nпреподаватель \nили \nтренер"
-        android:textSize="40sp"/>
+        android:text="Я руководитель"
+        android:textSize="35sp"/>
+
+</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:onClick="toKidActivity"
+        android:background="#EAFF55">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/text1">
+            <ImageView
+                android:id="@+id/parent"
+                android:layout_width="123dp"
+                android:layout_height="123dp"
+                app:srcCompat="@drawable/parent"
+                android:layout_toRightOf="@id/kid"
+                android:layout_marginLeft="20dp"/>
+            <ImageView
+                android:id="@+id/kid"
+                android:layout_width="123dp"
+                android:layout_height="123dp"
+                app:srcCompat="@drawable/kid"
+                android:layout_marginRight="20dp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:onClick="toKidActivity"
+            android:text="Я ребенок/родитель"
+            android:textSize="35sp"/>
+
+    </RelativeLayout>
+
+
 </LinearLayout>

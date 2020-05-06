@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateHobbyActivity"
+    android:background="#fff"
+    android:scrollbars="vertical">
+
+    <TextView
+        android:id="@+id/regSecHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Зарегистрируйте вашу секцию"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"
+        android:textColor="#000"
+        />
+        <EditText
+            android:id="@+id/yourName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ваше имя"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/regSecHeader"
+            android:inputType="textMultiLine"
+            android:textSize="20sp"/>
+        <EditText
+            android:id="@+id/SecName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Название вашей секции"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/yourName"
+            android:inputType="textMultiLine"
+            android:textSize="20sp"/>
+    <RelativeLayout
+        android:id="@+id/classSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/SecName">
+        <TextView
+            android:id="@+id/classHeader"
+            android:text="Тип вашей секции"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_alignParentRight="true"/>
+        <Spinner
+            android:id="@+id/classChoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/classHeader"
+            android:autofillHints="sss"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Aдрес"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/classSpinner"
+        android:inputType="textMultiLine"
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ваши контакты"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/location"
+        android:inputType="textMultiLine"
+        android:textSize="20sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Создать секцию"
+        android:onClick="toCreateSection"
+        android:background="#EEB93C"/>
+
+
+</RelativeLayout>

@@ -24,7 +24,6 @@ public class ListOfHobbiesActivity extends AppCompatActivity {
         w.setTitle("Спорт");
 
         ArrayList<ItemOfListOfHobbies> hobbyArray= new ArrayList<>();
-        hobbyArray.add(new ItemOfListOfHobbies("Баскетбол", "ул.Ленинрадский пр-скет, Олимп"));
         recyclerViewHobby = findViewById(R.id.recyclerView);
         recyclerViewHobby.setHasFixedSize(true);
         recycleViewAdapter = new RecyclerViewAdapter(hobbyArray);
